@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <title>User Management</title>
+  {% load static %}
+  <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="user-detailed-view">
+
+  <!-- Begin page -->
+  <div id="wrapper" class="h-100">
+
+      <!-- ========== Left Sidebar Start ========== -->
+    
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+
+      <div class="content-page">
+        <div class="content main-page">
+          <form id="scheduledMaintenanceCreate">
+            <div class="container-fluid">
+              <div class="page-title-box col-xl-11">
+                <div class="row align-items-center">
+                  <div class="col-sm-6">
+                  <h4 class="page-title mb-2 d-flex">
+                    <a href="user-list.html" class="align-items-center d-flex font-24 mr-2 ti-arrow-left" style="line-height: 0;">‹</a>
+                    <div>
+                      User Create
+                    </div>
+                  </h4>
+
+                  </div>
+                </div>
+                <!-- end row -->
+              </div>
+              <div class="row mb-4">
+                <div class="col-xl-11">
+                  <div class="card">
+                    <div class="card-body p-4">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="align-items-lg-start d-flex justify-content-between">
+                            <div class="user-img-box">
+                              <label class="border-0 btn fileadd new-cost-add-btn">
+                                <input type="file" id="imageAdd" accept="image/*">
+                                <span>Add +</span>
+                              </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary float-right px-4 ml-2">Save</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-4">
+                          <div class="form-group mb-4">
+                            <label class="font-weight-normal font-14 mb-1">Name*</label>
+                            <input type="text" class="form-control" value="" name="name">
+                          </div>
+                        </div>
+                        <div class="col-4">
+                         <div class="form-group mb-4">
+                            <label class="font-weight-normal font-14 mb-1">User Type*</label>
+                            <select class="form-control">
+                              <option value="">Others</option>
+                              <option value="">1</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <label class="font-weight-normal font-14 mb-1">User Name*</label>
+                          <input type="text" class="form-control" value="" name="username">
+                        </div>
+                      </div>
+
+                        
+                      <div class="row">
+                        
+                        <div class="col-4">
+                          <label class="font-weight-normal font-14 mb-1">Email*</label>
+                          <input type="text" class="form-control" value="" name="email">
+                        </div>
+                        <div class="col-4">
+                          <label class="font-weight-normal font-14 mb-1">Phone Number*</label>
+                          <input type="text" class="form-control" value="" name="phone">
+                        </div>
+                        <div class="col-4">
+                          <label class="font-weight-normal font-14 mb-1">Position*</label>
+                          <input type="text" class="form-control" value="" name="position">
+                        </div>
+                      </div>
+                      
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" checked="checked" id="emailNotification" name="emailNotification" class="custom-control-input">
+                            <label class="custom-control-label" for="emailNotification">Email Notification</label>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+               
+                <div class="col-xl-11 mt-3">
+                  <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="border-right-0 border font-13 nav-link rounded-0 text-black-50 active" id="clients-tab" data-toggle="tab" href="#clients" role="tab" aria-controls="clients" aria-selected="true">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="border font-13 nav-link rounded-0 text-black-50" id="permissions-tab" data-toggle="tab" href="#permissions" role="tab" aria-controls="permissions" aria-selected="false">Permissions</a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div id="clients" class="tab-pane fade active show">
+
+                      <div class="card mt-1">
+                        <div class="card-body p-4">
+
+                          <div class="row">
+                            <div class="col-xl-3 pr-1" id="section1">
+
+                              <div class="client-section client-section-user fullht mb-3">
+                                <div class="d-flex align-items-center justify-content-between py-2 mb-3">
+                                  <h5 class="font-weight-bold my-0 page-title">Client</h5>
+                                  <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="clientsSelectAll">
+                                    <label class="custom-control-label font-weight-light" for="clientsSelectAll">
+                                      Select All
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <a class="active">
+
+                                  <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                    <div class="d-flex flex-fill align-items-center">
+                                      <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box"></div>
+                                      <div class="desc">
+                                        <p class="mb-0">Berluti</p>
+                                      </div>
+                                    </div>
+
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="clients1">
+                                      <label class="custom-control-label font-weight-light" for="clients1"></label>
+                                    </div>
+
+                                  </div>
+
+                                </a>
+
+                                <a>
+                                  <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                    <div class="d-flex flex-fill align-items-center">
+                                      <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box"></div>
+                                      <div class="desc">
+                                        <p class="mb-0">Bimba Y Lola FM</p>
+                                      </div>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="clients2">
+                                      <label class="custom-control-label font-weight-light" for="clients2"></label>
+                                    </div>
+                                  </div>
+                                </a>
+
+                                <a>
+                                  <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                    <div class="d-flex flex-fill align-items-center">
+                                      <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box"></div>
+                                      <div class="desc">
+                                        <p class="mb-0">Gucci</p>
+                                      </div>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="clients3">
+                                      <label class="custom-control-label font-weight-light" for="clients3"></label>
+                                    </div>
+                                  </div>
+                                </a>
+
+                                <a>
+                                  <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                    <div class="d-flex flex-fill align-items-center">
+                                      <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box"></div>
+                                      <div class="desc">
+                                        <p class="mb-0">CCM Global</p>
+                                      </div>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="clients4">
+                                      <label class="custom-control-label font-weight-light" for="clients4"></label>
+                                    </div>
+                                  </div>
+                                </a>
+
+                                <a>
+                                  <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                    <div class="d-flex flex-fill align-items-center">
+                                      <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box"></div>
+                                      <div class="desc">
+                                        <p class="mb-0">CCM Project</p>
+                                      </div>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="clients5">
+                                      <label class="custom-control-label font-weight-light" for="clients5"></label>
+                                    </div>
+                                  </div>
+                                </a>
+
+                                <a>
+                                  <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                    <div class="d-flex flex-fill align-items-center">
+                                      <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box"></div>
+                                      <div class="desc">
+                                        <p class="mb-0">CCM Test Group Live</p>
+                                      </div>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="clients6">
+                                      <label class="custom-control-label font-weight-light" for="clients6"></label>
+                                    </div>
+                                  </div>
+                                </a>
+
+
+                              </div>
+                            </div>
+
+                            <div class="col-xl-3 pr-1" id="section2">
+                              
+                                  <div class="country-section fullht">
+
+                                    <div class="d-flex align-items-center justify-content-between py-2 mb-3">
+                                    <h5 class="font-weight-bold my-0 page-title">Country</h5>
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="countrySelectAll">
+                                      <label class="custom-control-label font-weight-light" for="countrySelectAll">
+                                        Select All
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                    <a>
+                                      <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                        <div class="d-flex flex-fill align-items-center">
+                                          <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                            <img src="assets/images/flags/1.jpg" alt="">
+                                          </div>
+                                          <div class="desc">
+                                            <p class="mb-0">Australia</p>
+                                          </div>
+                                        </div>
+                                        <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="country1">
+                                          <label class="custom-control-label font-weight-light" for="country1"></label>
+                                        </div>
+                                      </div>
+                                    </a>
+
+
+                                    <a>
+                                      <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                        <div class="d-flex flex-fill align-items-center">
+                                          <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                            <img src="assets/images/flags/2.png" alt="">
+                                          </div>
+                                          <div class="desc">
+                                            <p class="mb-0">Malaysia</p>
+                                          </div>
+                                        </div>
+                                        <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="country2">
+                                          <label class="custom-control-label font-weight-light" for="country2"></label>
+                                        </div>
+                                      </div>
+                                    </a>
+
+
+
+
+                                    <a>
+                                      <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                        <div class="d-flex flex-fill align-items-center">
+                                          <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                            <img src="assets/images/flags/3.png" alt="">
+                                          </div>
+                                          <div class="desc">
+                                            <p class="mb-0">New Zealand</p>
+                                          </div>
+                                        </div>
+                                        <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="country3">
+                                          <label class="custom-control-label font-weight-light" for="country3"></label>
+                                        </div>
+                                      </div>
+                                    </a>
+                                    <a>
+                                      <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                        <div class="d-flex flex-fill align-items-center">
+                                          <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                            <img src="assets/images/flags/4.png" alt="">
+                                          </div>
+                                          <div class="desc">
+                                            <p class="mb-0">Singapore</p>
+                                          </div>
+                                        </div>
+                                        <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="country4">
+                                          <label class="custom-control-label font-weight-light" for="country4"></label>
+                                        </div>
+                                      </div>
+                                    </a>
+                                    <a>
+                                      <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                        <div class="d-flex flex-fill align-items-center">
+                                          <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                            <img src="assets/images/flags/5.png" alt="">
+                                          </div>
+                                          <div class="desc">
+                                            <p class="mb-0">Thailand</p>
+                                          </div>
+                                        </div>
+                                        <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="country5">
+                                          <label class="custom-control-label font-weight-light" for="country5"></label>
+                                        </div>
+                                      </div>
+                                    </a>
+                                    <a>
+                                      <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 w-100 client-section-list">
+                                        <div class="d-flex flex-fill align-items-center">
+                                          <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                            <img src="assets/images/flags/6.png" alt="">
+                                          </div>
+                                          <div class="desc">
+                                            <p class="mb-0">Vietnam</p>
+                                          </div>
+                                        </div>
+                                        <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="country5">
+                                          <label class="custom-control-label font-weight-light" for="country5"></label>
+                                        </div>
+                                      </div>
+                                    </a>
+                                
+
+                                  </div>
+                            </div>
+
+
+
+                            <div class="col-xl-3 pr-1" id="section3">
+                                  <div class="store-section fullht">
+                                    <div class="d-flex align-items-center justify-content-between py-2 mb-3">
+                                    <h5 class="font-weight-bold my-0 page-title">Store</h5>
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="storeSelectAll">
+                                      <label class="custom-control-label font-weight-light" for="storeSelectAll">
+                                        Select All
+                                      </label>
+                                    </div>
+                                  </div>
+                                    <div class="position-relative w-100">
+                                      <div class="in-sect">
+                                        <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 store-section-list w-100">
+                                          <div class="d-flex flex-fill align-items-center">
+                                            <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                              
+                                            </div>
+                                            <div class="desc">
+                                              <p class="mb-0">Westfield</p>
+                                              <span>Gucci</span>
+                                            </div>
+                                          </div>
+                                          <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="store1">
+                                            <label class="custom-control-label font-weight-light" for="store1"></label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="position-relative w-100">
+                                      <div class="in-sect">
+                                        <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 store-section-list w-100">
+                                          <div class="d-flex flex-fill align-items-center">
+                                            <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                              
+                                            </div>
+                                            <div class="desc">
+                                              <p class="mb-0">Bondi Junction</p>
+                                              <span>Gucci</span>
+                                            </div>
+                                          </div>
+                                          <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="store2">
+                                            <label class="custom-control-label font-weight-light" for="store2"></label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="position-relative w-100">
+                                      <div class="in-sect">
+                                        <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 store-section-list w-100">
+                                          <div class="d-flex flex-fill align-items-center">
+                                            <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                              
+                                            </div>
+                                            <div class="desc">
+                                              <p class="mb-0">Sydney Airport</p>
+                                              <span>Gucci</span>
+                                            </div>
+                                          </div>
+                                          <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="store3">
+                                            <label class="custom-control-label font-weight-light" for="store3"></label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+
+                                    <div class="position-relative w-100">
+                                      <div class="in-sect">
+                                        <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 store-section-list w-100">
+                                          <div class="d-flex flex-fill align-items-center">
+                                            <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                              
+                                            </div>
+                                            <div class="desc">
+                                              <p class="mb-0">Pacific Fair</p>
+                                              <span>Gucci</span>
+                                            </div>
+                                          </div>
+                                          <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="store4">
+                                            <label class="custom-control-label font-weight-light" for="store4"></label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                    <div class="position-relative w-100">
+                                      <div class="in-sect">
+                                        <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 store-section-list w-100">
+                                          <div class="d-flex flex-fill align-items-center">
+                                            <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                              
+                                            </div>
+                                            <div class="desc">
+                                              <p class="mb-0">Collins</p>
+                                              <span>Gucci</span>
+                                            </div>
+                                          </div>
+                                          <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="store5">
+                                            <label class="custom-control-label font-weight-light" for="store5"></label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="position-relative w-100">
+                                      <div class="in-sect">
+                                        <div class="align-items-center d-flex mt-2 position-relative px-2 py-2 store-section-list w-100">
+                                          <div class="d-flex flex-fill align-items-center">
+                                            <div class="card float-left font-16 font-weight-bold mb-0 mr-3 text-white badge-box">
+                                              
+                                            </div>
+                                            <div class="desc">
+                                              <p class="mb-0">Brisbane</p>
+                                              <span>Gucci</span>
+                                            </div>
+                                          </div>
+                                          <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="store6">
+                                            <label class="custom-control-label font-weight-light" for="store6"></label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                    <div id="permissions" class="tab-pane fade">
+
+                      <div class="card mt-1">
+                        <div class="card-body p-4">
+                          
+                        <div class="row mt-4">
+                          <div class="col-7">
+                            <div class="form-group row">
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="viewClient" name="viewClient" class="custom-control-input">
+                                  <label class="custom-control-label" for="viewClient">View Client</label>
+                                </div>
+                              </div>
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="createClient" name="createClient" class="custom-control-input">
+                                  <label class="custom-control-label" for="createClient">Create Client</label>
+                                </div>
+                              </div>
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="manageClient" name="manageClient" class="custom-control-input">
+                                  <label class="custom-control-label" for="manageClient">Manage Client</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="manageCountry" name="manageCountry" class="custom-control-input">
+                                  <label class="custom-control-label" for="manageCountry">Manage Country</label>
+                                </div>
+                              </div>
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="manageStore" name="manageStore" class="custom-control-input">
+                                  <label class="custom-control-label" for="manageStore">Manage Store</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="manageTickets" name="manageTickets" class="custom-control-input">
+                                  <label class="custom-control-label" for="manageTickets">Manage Tickets</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="viewFinanace" name="viewFinanace" class="custom-control-input">
+                                  <label class="custom-control-label" for="viewFinanace">View Finance</label>
+                                </div>
+                              </div>
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="manageFinance" name="manageFinance" class="custom-control-input">
+                                  <label class="custom-control-label" for="manageFinance">Manage Finanace</label>
+                                </div>
+                              </div>
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="approveFinance" name="approveFinance" class="custom-control-input">
+                                  <label class="custom-control-label" for="approveFinance">Approve Finanace</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col-4 mb-3">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" checked="checked" id="closeTickets" name="closeTickets" class="custom-control-input">
+                                  <label class="custom-control-label" for="closeTickets">Close Tickets</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Right content here -->
+      <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- jQuery  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    
+    <script>
+
+      $('.client-section-user input[type="checkbox"]').on('change', function() {
+        if($(this).is(':checked')){
+          $('.country-section input[type="checkbox"]').prop('checked',true);
+          $('.store-section input[type="checkbox"]').prop('checked',true);
+        } else {
+
+          $('.country-section input[type="checkbox"]').prop('checked',false);
+          $('.store-section input[type="checkbox"]').prop('checked',false);
+        }
+      });
+
+      $('.country-section input[type="checkbox"]').on('change', function() {
+        if($(this).is(':checked')){
+          $('.store-section input[type="checkbox"]').prop('checked',true);
+        } else {
+          $('#countrySelectAll').prop('checked',false);
+          $('.store-section input[type="checkbox"]').prop('checked',false);
+        }
+      });
+
+      $('#clientsSelectAll').on('change', function() {
+        if($(this).is(':checked')){
+          $('.client-section-user input[type="checkbox"]').prop('checked',true);
+        } else {
+          $('.client-section-user input[type="checkbox"]').prop('checked',false);
+        } 
+      });
+
+      $('#countrySelectAll').on('change', function() {
+        if($(this).is(':checked')){
+          $('.country-section input[type="checkbox"]').prop('checked',true);
+        } else {
+          $('.country-section input[type="checkbox"]').prop('checked',false);
+        } 
+      });
+
+      $('#storeSelectAll').on('change', function() {
+        if($(this).is(':checked')){
+          $('.store-section input[type="checkbox"]').prop('checked',true);
+        } else {
+          $('.store-section input[type="checkbox"]').prop('checked',false);
+        } 
+      });
+
+
+
+      $('.client-section .client-section-list').each(function() {
+        var getFirst = $(this).find('.desc p').text().charAt(0);
+        $(this).find('.card').text(getFirst);
+        var back = ["#1c8d17","#16a387","#d4d063", "#6390d4", "#b47420", "#a0a818", "#d4a863", "#c63d84", "#afd80c"];
+        var rand = back[Math.floor(Math.random() * back.length)];
+        $(this).find('.card').css('background',rand);
+      });
+
+      $('.client-section a .flex-fill').on('click', function() {
+        $('.client-section a').removeClass('active');
+        $(this).closest('a').addClass('active');
+        // $('#section2').fadeIn(300);
+      });
+
+      $('.country-section a .flex-fill').on('click', function() {
+        $('.country-section a').removeClass('active');
+        $(this).closest('a').addClass('active');
+        // $('#section3').fadeIn(300);
+      });
+
+      $('.store-section .store-section-list').each(function() {
+        var getFirst = $(this).find('.desc p').text().charAt(0);
+        $(this).find('.card').text(getFirst);
+        var back = ["#1c8d17","#16a387","#d4d063", "#6390d4", "#b47420", "#a0a818", "#d4a863", "#c63d84", "#afd80c"];
+        var rand = back[Math.floor(Math.random() * back.length)];
+        $(this).find('.card').css('background',rand);
+      });
+
+
+      $('#imageAdd').change(function () {
+        readURL(event);
+      });
+      function readURL(event){
+       var getImagePath = URL.createObjectURL(event.target.files[0]);
+       $('.user-img-box').css('background-image', 'url(' + getImagePath + ')');
+      };
+
+
+       $.validator.addMethod("regex", function (value, element, regexpr) {
+        return regexpr.test(value);
+      });
+
+      jQuery.validator.addMethod("firstSPace", function(value, element) {
+         return this.optional(element) || /^[a-z,0-9]/i.test(value);
+       }, "Please remove first space");
+
+      $.validator.addMethod("cEmail", function (value, element) {
+        return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(value);
+      }, "Please enter a valid email address.");
+
+      var scheduledMaintenanceCreateValidator = $("#scheduledMaintenanceCreate").validate({
+        ignore: [],
+        errorElement: 'span',
+        errorClass: 'error text-danger',
+        errorPlacement: function (error, element) {
+          if (element.parent().hasClass("input-group")) {
+            error.appendTo(element.parent().parent());
+          } else {
+            error.appendTo(element.parent());
+          }
+        },
+        rules: {
+          name: {
+            required: true,
+          },
+          username: {
+          	required: true,
+          	firstSPace: true
+          },
+          email: {
+          	required: true,
+          	cEmail: true,
+          },
+          phone: {
+          	required: true,
+            firstSPace: true,
+            minlength:6,
+            maxlength: 12,
+            digits:true
+          },
+          position : {
+          	required: true,
+          	firstSPace: true
+          }
+        },
+        messages: {
+          name: {
+            required: "Please enter name",
+          },
+          username: {
+          	required: "Please enter username",
+          },
+          email: {
+          	required: "Please enter email",
+          },
+          phone: {
+          	required: "Please enter phone number",
+          },
+          position : {
+          	required: "Please enter position",
+          }
+        }
+      });
+
+    </script>
+  </body>
+
+  </html>

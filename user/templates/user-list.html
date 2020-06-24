@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <title>User Management</title>
+  {% load static %}
+  <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+  <!-- Begin page -->
+  <div id="wrapper" class="h-100">
+
+
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+      <div class="content-page">
+        <!-- Start content -->
+        <div class="content main-page">
+          <div class="container-fluid">
+            <div class="page-title-box">
+              <div class="row align-items-center">
+                <div class="col-sm-6">
+                  <h4 class="page-title mb-2 d-flex">
+                    Users
+                  </h4>
+                </div>
+              </div>
+              <!-- end row -->
+            </div>
+            <!-- end page-title -->
+            <div class="row current-list">
+              <div class="col-xl-12">
+                <div class="card m-b-30 p-3">
+                  <div class="d-flex">
+                  <form role="search" class="client-searchbox px-0 w-100">
+                    <div class="form-group mb-0">
+                      <input type="text" class="form-control rounded pl-3" placeholder="Search">
+                      <button type="button" disabled="disabled" class="" style="left: 6px;"><i class="fa fa-search"></i></button>
+                    </div>
+                  </form>
+                  <a href="user-create.html" class="btn btn-primary white-space-nowrap ml-3"><i class="fa fa-plus-circle pr-1"></i>Create</a>
+                </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table mb-0">
+                        <thead>
+                          <tr>
+                            <th class="border-0">Sl No</th>
+                            <th class="border-0">Name</th>
+                            <th class="border-0 text-center">User Type</th>
+                            <th class="border-0 text-center">Email ID</th>
+                            <th class="border-0 text-center">Phone Number</th>
+                            <th class="border-0 text-center">Position</th>
+                            <th class="border-0 text-center">Country</th>
+                            <th class="border-0 text-center">Store</th>
+                            <th class="border-0 text-center">&nbsp;</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th class="border-0">01</th>
+                            <td class="border-0"><a href="user-detail.html">Ben jacob</a></td>
+                            <td class="border-0">CCM Staff</td>
+                            <td class="text-center border-0">benhere@cloud.com</td>
+                            <td class="text-center border-0">+91 9345345345</td>
+                            <td class="text-center border-0">Supervisor</td>
+                            <td class="text-center border-0"><div data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>Austalia, China, Thailand, Singapore, Malaysia</i>">Austalia, China, Thailand</div></td>
+                            <td class="text-center border-0">Westfield Bondi</td>
+                            <td class="text-center border-0">
+                              <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                <label class="custom-control-label" for="customSwitch1"></label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th class="border-0">01</th>
+                            <td class="border-0"><a href="user-detail.html">Ben jacob</a></td>
+                            <td class="border-0">CCM Staff</td>
+                            <td class="text-center border-0">benhere@cloud.com</td>
+                            <td class="text-center border-0">+91 9345345345</td>
+                            <td class="text-center border-0">Supervisor</td>
+                            <td class="text-center border-0"><div data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>Austalia, China, Thailand, Singapore, Malaysia</i>">Austalia, China, Thailand</div></td>
+                            <td class="text-center border-0">Westfield Bondi</td>
+                            <td class="text-center border-0">
+                              <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                                <label class="custom-control-label" for="customSwitch2"></label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th class="border-0">01</th>
+                            <td class="border-0"><a href="user-detail.html">Ben jacob</a></td>
+                            <td class="border-0">CCM Staff</td>
+                            <td class="text-center border-0">benhere@cloud.com</td>
+                            <td class="text-center border-0">+91 9345345345</td>
+                            <td class="text-center border-0">Supervisor</td>
+                            <td class="text-center border-0"><div data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>Austalia, China, Thailand, Singapore, Malaysia</i>">Austalia, China, Thailand</div></td>
+                            <td class="text-center border-0">Westfield Bondi</td>
+                            <td class="text-center border-0">
+                              <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch3">
+                                <label class="custom-control-label" for="customSwitch3"></label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th class="border-0">01</th>
+                            <td class="border-0"><a href="user-detail.html">Ben jacob</a></td>
+                            <td class="border-0">CCM Staff</td>
+                            <td class="text-center border-0">benhere@cloud.com</td>
+                            <td class="text-center border-0">+91 9345345345</td>
+                            <td class="text-center border-0">Supervisor</td>
+                            <td class="text-center border-0"><div data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>Austalia, China, Thailand, Singapore, Malaysia</i>">Austalia, China, Thailand</div></td>
+                            <td class="text-center border-0">Westfield Bondi</td>
+                            <td class="text-center border-0">
+                              <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch4">
+                                <label class="custom-control-label" for="customSwitch4"></label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th class="border-0">01</th>
+                            <td class="border-0"><a href="user-detail.html">Ben jacob</a></td>
+                            <td class="border-0">CCM Staff</td>
+                            <td class="text-center border-0">benhere@cloud.com</td>
+                            <td class="text-center border-0">+91 9345345345</td>
+                            <td class="text-center border-0">Supervisor</td>
+                            <td class="text-center border-0"><div data-toggle="tooltip" data-placement="bottom" data-html="true" title="<i>Austalia, China, Thailand, Singapore, Malaysia</i>">Austalia, China, Thailand</div></td>
+                            <td class="text-center border-0">Westfield Bondi</td>
+                            <td class="text-center border-0">
+                              <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch5">
+                                <label class="custom-control-label" for="customSwitch5"></label>
+                              </div>
+                            </td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row align-items-center mt-3 pagination-hide">
+              <div class="col-12">
+                <div class="row justify-content-end align-items-center">
+                  <nav aria-label="Pagination">
+                    <ul class="pagination mt-0 mb-0 float-right d-flex align-items-baseline">
+                      <li class="page-item">
+                       <a class="bg-transparent page-link border-0 font-weight-bolder pointer font-18 text-black-50" aria-label="First">
+                         <span aria-hidden="true">&laquo;</span>
+                       </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="bg-transparent page-link border-0 font-weight-bolder pointer font-18 text-black-50" aria-label="Previous">
+                          <span aria-hidden="true">&#8249;</span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                      <li class=" align-items-center d-flex page-item">
+                        <a class="bg-transparent align-items-center border-0 d-flex font-13 font-weight-bolder justify-content-center p-0 page-link text-black-50 active" style="width: 26px; height: 26px;">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="bg-transparent page-link border-0 font-weight-bolder pointer font-18 text-black-50" aria-label="Next">
+                         <span aria-hidden="true">&#8250;</span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                       <a class="bg-transparent page-link border-0 font-weight-bolder pointer font-18 text-black-50" aria-label="Last">
+                         <span aria-hidden="true">&raquo;</span>
+                       </a>
+                     </li>
+                    </ul>
+                  </nav>
+                  <div class="ml-1 pl-0 pr-3 col-2">                        
+                    <div class="input-group align-items-center justify-content-end pagination-input-group">
+                      <label class="font-12 font-600 mb-0 pr-2 text-black-50">Go to page</label>
+                      <input type="number" class="form-control pagination-input text-center pr-0 rounded" min="1">  
+                      <small class="font-13 font-500 pr-1 text-black-50">&nbsp;/
+                       10
+                      </small>                          
+                      <div class="input-group-append">
+                        <button class="border-0 btn font-14 font-600 mb-0 px-2 py-0 text-black-50">Go ></button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+
+          </div>
+          <!-- container-fluid -->
+
+        </div>
+        <!-- content -->
+
+
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Right content here -->
+      <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- jQuery  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script>
+      $('[data-toggle="tooltip"]').tooltip();
+    </script>
+  </body>
+
+  </html>
